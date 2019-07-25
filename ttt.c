@@ -123,18 +123,20 @@ int main_solver(int *sq_len, char symb[], int cur_max[], char file[])
     printf("%s\n", "helloooo");
     while ((ret = read(fd, buf, 1)))
     {
-        printf("%c", buf[0]);
+        printf("%c\n", buf[0]);
         if (buf[0] == '\n')
         {
-
+            //read(fd, buf, 1);
+            //read(fd, buf, 1);
             break;
         }
 
     }
-    printf("%s\n", "ololo");
+    printf("%s %c", "cahrs", buf[0]);
 	while (sq_len--)
 	{
-		ret = read(fd, str, *str3[2]);
+		ret = read(fd, str, (*str3[2]) + 1);
+        printf("%c %c %c\n", "cahrs", str[0], str[1], str[2]);
 		if (str[*sq_len] != '\n')
 		{
 			close(fd);
