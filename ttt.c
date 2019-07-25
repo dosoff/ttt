@@ -116,7 +116,7 @@ int main_solver(int *sq_len, char symb[], int cur_max[], char file[])
 	str = malloc((1 + (*sq_len)) * sizeof(char));
 	str3[0] = str1;
 	str3[1] = str2;
-	str3[2][0] = sq_len;
+	str3[2][0] = *sq_len;
     char buf[1];
 
     fd = open(file, 'r');
@@ -161,12 +161,12 @@ int main()
     sq_len = 0;
 	if (!len_of_first_str(&fd[0], &symb[0], &sq_len))
 	{
-		printf("%s\n", "error");
+		printf("%s\n", "error1");
 		return 0;
 	}
 	if (!main_solver(&sq_len, &symb[0], &cur_max[0], &fd1[0]))
 	{
-		printf("%s\n", "error");
+		printf("%s\n", "error2");
 		return 0;
 	}
 }
