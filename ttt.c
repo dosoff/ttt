@@ -114,20 +114,22 @@ int main_solver(int *sq_len, char symb[], int cur_max[], char file[])
     str1 = malloc((*sq_len) * sizeof(int));
 	str2 = str1;
 	str = malloc((1 + (*sq_len)) * sizeof(char));
-	*str3[0] = str1;
-	*str3[1] = str2;
+	str3[0] = str1;
+	str3[1] = str2;
 	str3[2][0] = sq_len;
     char buf[1];
 
-    printf("%s\n", "ololo");
-	fd = open(file, 'r');
-    printf("%s\n", "ololo");
-    ret = read(fd, buf, 1)
-    printf("%c", buf[0]);
-    printf("%s\n", "ololo");
-    while (ret = read(fd, buf, 1))
+    fd = open(file, 'r');
+    printf("%s\n", "helloooo");
+    while ((ret = read(fd, buf, 1)))
     {
         printf("%c", buf[0]);
+        if (buf[0] == '\n')
+        {
+
+            break;
+        }
+
     }
     printf("%s\n", "ololo");
 	while (sq_len--)
@@ -144,12 +146,14 @@ int main_solver(int *sq_len, char symb[], int cur_max[], char file[])
 			return 0;
 		}
 	}
+    close(fd);
 	return 1;
 }
 
 int main()
 {
 	char fd[2] = "1";
+    char fd1[2] = "2";
 	int cur_max[] = {-1, -1, -1};
 	char symb[3];
 	int sq_len;
@@ -160,7 +164,7 @@ int main()
 		printf("%s\n", "error");
 		return 0;
 	}
-	if (!main_solver(&sq_len, &symb[0], &cur_max[0], &fd[0]))
+	if (!main_solver(&sq_len, &symb[0], &cur_max[0], &fd1[0]))
 	{
 		printf("%s\n", "error");
 		return 0;
